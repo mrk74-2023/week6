@@ -3,10 +3,21 @@ pipeline {
      triggers {
           pollSCM('* * * * *')
      }
-     stages {         
-          stage("Static code analysis") {
+     stages {
+          stage("Compile") {
                steps {
-                    sh "./gradlew checkstyleMain"
+                    sh "./gradlew compileJava"
+               }
+          }
+          stage("Unit test") {
+               steps {
+                    sh "./gradlew test"
+               }
+          }
+          stage("Code coverage") {
+               steps {
+                    sh "./gradlew jacocoTestReport"
+                    sh "./gradlew jacocoTestCoverageVerification"
                }
           }
      }
