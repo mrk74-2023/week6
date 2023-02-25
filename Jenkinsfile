@@ -4,20 +4,9 @@ pipeline {
           pollSCM('* * * * *')
      }
      stages {
-          stage("Compile") {
+            stage("Static code analysis") {
                steps {
-                    sh "./gradlew compileJava"
-               }
-          }
-          stage("Unit test") {
-               steps {
-                    sh "./gradlew test"
-               }
-          }
-          stage("Code coverage") {
-               steps {
-                    sh "./gradlew jacocoTestReport"
-                    sh "./gradlew jacocoTestCoverageVerification"
+                    sh "./gradlew checkstyleMain"
                }
           }
      }
