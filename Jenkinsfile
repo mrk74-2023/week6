@@ -3,8 +3,7 @@ pipeline {
      triggers {
           pollSCM('* * * * *')
      }
-     stages {
-         
+     stages {         
           stage("Static code analysis") {
                steps {
                     sh "./gradlew checkstyleMain"
