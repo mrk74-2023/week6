@@ -33,7 +33,7 @@ pipeline {
 
           stage("Docker build") {
                steps {
-                    sh "docker build -t leszko/calculator:${BUILD_TIMESTAMP} ."
+                    sh "docker build -t leszko/calculator:${env.BUILD_TIMESTAMP} ."
                }
           }
 
@@ -48,13 +48,13 @@ pipeline {
 
           stage("Docker push") {
                steps {
-                    sh "docker push leszko/calculator:${BUILD_TIMESTAMP}"
+                    sh "docker push leszko/calculator:${env.BUILD_TIMESTAMP}"
                }
           }
 
           stage("Update version") {
                steps {
-                    sh "sed  -i 's/{{VERSION}}/${BUILD_TIMESTAMP}/g' calculator.yaml"
+                    sh "sed  -i 's/{{VERSION}}/${env.BUILD_TIMESTAMP}/g' calculator.yaml"
                }
           }
        }
