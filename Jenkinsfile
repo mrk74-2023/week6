@@ -33,7 +33,7 @@ pipeline {
 
           stage("Docker build") {
                steps {
-                    sh "docker build -t leszko/calculator:latest"
+                    sh "docker build -t leszko/calculator:latest1"
                }
           }
            
