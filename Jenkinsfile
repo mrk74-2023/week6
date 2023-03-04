@@ -7,7 +7,7 @@ pipeline {
          
           stage("Docker build") {
                steps {
-                    sh "docker build -t leszko/calculator:latest1"
+                    sh "docker build -t leszko/calculator:latest2"
                }
           }
        }
