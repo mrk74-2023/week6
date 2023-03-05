@@ -7,6 +7,12 @@ pipeline {
         kind: Pod
         spec:
           containers:
+          containers:
+          - name: gradle
+            image: gradle:6.3-jdk14
+            command:
+            - cat
+            tty: true
           - name: docker
             image: docker:latest
             command:
@@ -23,15 +29,18 @@ pipeline {
     }
   }
   stages {
-
+    stage('Build-Gradle-Test') {
+      steps {
+        container('gradle') {
+          sh 'chmod +x gradlew'
+          sh './gradlew test'
+        }
+      }
+    }  
     stage('Build-Docker-Image') {
       steps {
         container('docker') {
-          git 'https://github.com/mrk74-2023/jacacochapter8.git'
-          sh '''
-          cd sample1
-          docker build -t leszko/calculator:latest -f Dockerfile .
-          '''
+          sh 'docker build -t leszko/calculator:latest -f Dockerfile .'
         }
       }
     }
