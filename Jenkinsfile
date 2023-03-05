@@ -45,13 +45,13 @@ pipeline {
           sh 'docker push leszko/calculator:latest'
       }
     }
-   }
-     post {
+    }
+  }
+  post {
       always {
         container('docker') {
           sh 'docker logout'
       }
       }
     }
-  }
 }
