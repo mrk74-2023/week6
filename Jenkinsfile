@@ -13,7 +13,7 @@ podTemplate(containers: [
                     // https://www.jenkins.io/doc/pipeline/steps/git/
                     git 'https://github.com/mrk74-2023/week6.git'
                     sh '''
-                    docker build -t leszko/calculator:latest
+                    docker build -t calculator .
                     '''
                 }
             }
