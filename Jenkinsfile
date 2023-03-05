@@ -42,7 +42,7 @@ pipeline {
       steps {
         container('docker') {
           sh 'docker tag latest leszko/calculator:latest'
-          sh 'docker push leszko/calculator:latest'
+          sh 'docker push latest'
       }
     }
     }
