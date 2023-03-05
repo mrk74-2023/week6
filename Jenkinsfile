@@ -37,6 +37,31 @@ pipeline {
         }
       }
     }  
+    stage('Build-Gradle-Coverage') {
+      steps {
+        container('gradle') {
+          sh './gradlew jacocoTestCoverageVerification'
+          sh './gradlew jacocoTestReport'
+        }
+      }
+    } 
+    stage('Build-Gradle-CodeAnalysis') {
+      steps {
+        container('gradle') {
+          sh './gradlew checkstyleMain'
+        }
+      }
+    } 
+    stage('Build-Gradle-package') {
+      steps {
+        container('gradle') {
+          sh './gradlew build'
+        }
+      }
+    } 
+        catch (Exception E) {
+                        echo 'Failure detected'
+                    }
     stage('Build-Docker-Image') {
       steps {
         container('docker') {
