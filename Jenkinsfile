@@ -53,14 +53,12 @@ pipeline {
       }
     } 
     stage('Build-Gradle-package') {
-      try steps {
+       steps {
         container('gradle') {
           sh './gradlew build'
         }
       }
-       catch (Exception E) {
-                        echo 'Failure detected'
-                    }
+    }
 
        
     stage('Build-Docker-Image') {
@@ -94,4 +92,4 @@ pipeline {
       }
     }
 }
-}
+
