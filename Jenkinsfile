@@ -27,7 +27,11 @@ pipeline {
     stage('Build-Docker-Image') {
       steps {
         container('docker') {
-          sh 'docker build -t leszko/calculator:latest -f Dockerfile .'
+          git 'https://github.com/mrk74-2023/jacacochapter8.git'
+          sh '''
+          cd sample1
+          docker build -t leszko/calculator:latest -f Dockerfile .
+          '''
         }
       }
     }
