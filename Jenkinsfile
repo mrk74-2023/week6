@@ -27,7 +27,7 @@ pipeline {
     stage('Build-Docker-Image') {
       steps {
         container('docker') {
-          sh 'docker build -t leszko/calculator:latest .'
+          sh 'docker build -t leszko/calculator:latest -f Dockerfile .'
         }
       }
     }
