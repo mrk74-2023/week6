@@ -29,21 +29,21 @@ pipeline {
     }
   }
   stages {
- try { stage('Build-Gradle-Build') {
+    stage('Build-Gradle-Build') {
        steps {
          container('gradle') {
-          sh 'chmod +x gradlew'
-          sh './gradlew test'
-          sh './gradlew jacocoTestCoverageVerification'
-          sh './gradlew jacocoTestReport'
-          sh './gradlew checkstyleMain'
-          sh './gradlew build'
-        }   
-      }
-    }
-   }
-    catch (Exception E) {
+          try {   
+             sh 'chmod +x gradlew'
+             sh './gradlew test'
+             sh './gradlew jacocoTestCoverageVerification'
+             sh './gradlew jacocoTestReport'
+             sh './gradlew checkstyleMain'
+             sh './gradlew build'
+           }   catch (Exception E) {
              echo 'Failure detection'
            } 
+      }
+    }
+   } 
   }
 }
