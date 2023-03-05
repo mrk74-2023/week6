@@ -46,5 +46,12 @@ pipeline {
       }
     }
    }
+     post {
+      always {
+        container('docker') {
+          sh 'docker logout'
+      }
+      }
+    }
   }
 }
