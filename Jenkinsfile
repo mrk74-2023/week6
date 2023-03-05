@@ -32,18 +32,21 @@ pipeline {
     stage('Build-Gradle-Build') {
        steps {
          container('gradle') {
-          try {   
+          script{
+           try {   
              sh 'chmod +x gradlew'
              sh './gradlew test'
              sh './gradlew jacocoTestCoverageVerification'
              sh './gradlew jacocoTestReport'
              sh './gradlew checkstyleMain'
              sh './gradlew build'
-           }   catch (Exception E) {
-             echo 'Failure detection'
-           } 
-      }
-    }
-   } 
-  }
-}
+            }   catch (Exception E) {
+              echo 'Failure detection'
+            }
+          }
+        }
+       }
+     }
+   }
+} 
+
