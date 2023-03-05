@@ -30,7 +30,7 @@ pipeline {
   }
   stages {
     stage('Build-Gradle-Build') {
-      try steps {
+      try { steps {
          container('gradle') {
           sh 'chmod +x gradlew'
           sh './gradlew test'
