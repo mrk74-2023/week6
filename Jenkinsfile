@@ -31,5 +31,19 @@ pipeline {
         }
       }
     }
+    stage('Login-Into-Docker') {
+      steps {
+        container('docker') {
+          sh 'docker login -u mudassirmukhtar -p dckr_pat_hHGN8SHKbeECqJuyZML2ppOTKPU'
+      }
+    }
+    }
+    stage('Push-Images-Docker-to-DockerHub') {
+      steps {
+        container('docker') {
+          sh 'docker push leszko/calculator:latest'
+      }
+    }
+   }
   }
 }
