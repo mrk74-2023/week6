@@ -39,13 +39,10 @@ pipeline {
           sh './gradlew jacocoTestReport'
           sh './gradlew checkstyleMain'
           sh './gradlew build'
-        }
-       }
-        catch (Exception E) {
-        echo 'Failure detected' 
+       } catch (Exception E) {
+        echo 'Failure detection'
        }
       }
     }  
   }
-}   
-
+}  
