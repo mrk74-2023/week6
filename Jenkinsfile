@@ -43,8 +43,8 @@ pipeline {
          catch (Exception E) {
              echo 'Failure detection'
            } 
-      }  
+      }
     }
-} 
-
+   }
   }
+}
