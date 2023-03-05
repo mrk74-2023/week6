@@ -30,9 +30,9 @@ pipeline {
   }
   stages {
     stage('Build-Gradle-Build') {
-      try {
        steps {
          container('gradle') {
+          try {
           sh 'chmod +x gradlew'
           sh './gradlew test'
           sh './gradlew jacocoTestCoverageVerification'
@@ -45,4 +45,5 @@ pipeline {
       }
     }  
   }
-}  
+ }  
+} 
