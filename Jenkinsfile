@@ -61,7 +61,7 @@ pipeline {
        catch (Exception E) {
                         echo 'Failure detected'
                     }
-    } 
+
        
     stage('Build-Docker-Image') {
       steps {
@@ -93,4 +93,5 @@ pipeline {
       }
       }
     }
+}
 }
