@@ -45,3 +45,4 @@ pipeline {
              echo 'Failure detection'
            }  
 } 
+}
