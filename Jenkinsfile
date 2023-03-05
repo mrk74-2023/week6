@@ -41,7 +41,7 @@ pipeline {
     stage('Push-Images-Docker-to-DockerHub') {
       steps {
         container('docker') {
-          sh 'docker tag latest leszko/calculator:latest'
+          sh 'docker tag leszko/calculator:latest latest' 
           sh 'docker push latest'
       }
     }
