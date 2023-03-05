@@ -32,7 +32,7 @@ pipeline {
     stage('Build-Gradle-Build') {
        steps {
          container('gradle') {
-           try {
+     try {
           sh 'chmod +x gradlew'
           sh './gradlew test'
           sh './gradlew jacocoTestCoverageVerification'
