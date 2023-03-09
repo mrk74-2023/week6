@@ -56,15 +56,15 @@ pipeline {
     stage('Login-Into-Docker') {
       steps {
         container('docker') {
-          sh 'docker login -u mudassirmukhtar -p dckr_pat_hHGN8SHKbeECqJuyZML2ppOTKPU'
+          sh 'docker login -u mrk742023 -p dckr_pat_0CBOE6p9-PhSNfU2LPKL0qlH1KA'
       }
     }
     }
     stage('Push-Images-Docker-to-DockerHub') {
       steps {
         container('docker') {
-          sh 'docker tag leszko/calculator:latest mudassirmukhtar/demoproject:calculator-master-v1.0-r0.1' 
-          sh 'docker push mudassirmukhtar/demoproject:calculator-master-v1.0-r0.1'
+          sh 'docker tag leszko/calculator:latest mrk742023/demoproject:calculator-master-v1.0-r0.1' 
+          sh 'docker push mrk742023/demoproject:calculator-master-v1.0-r0.1'
       }
     }
     }
